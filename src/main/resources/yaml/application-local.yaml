@@ -1,0 +1,31 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/flowh2
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  logging:
+    level:
+      org.hibernate.SQL: debug
+
+jwt:
+  access-secret-key: ${JWT_ACCESS_SECRET_KEY}
+  refresh-secret-key: ${JWT_REFRESH_SECRET_KEY}
+  access-expires-in: 18000000
+  refresh-expires-in: 86400000
